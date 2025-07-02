@@ -49,14 +49,13 @@ function DisplayQuote() {
   }, [currentIndex]);
 
   return (
-    <div class="test">
+    <div>
       <h1 className='title'>Quote Generator!</h1>
       <p id="quote-title">{quotes[currentIndex].quote}</p>
       <p id="quote-author">-{quotes[currentIndex].author}</p>
       <button onClick={handleNewQuote}>New Quote</button>
     </div>
   );
-
 }
 
 
