@@ -3,6 +3,7 @@ import React, {
   useEffect
 } from 'react';
 import ReactDOM from 'react-dom/client';
+import './styles.css';
 
 
 const sentences = [
@@ -20,7 +21,10 @@ const TypeTester = () => {
 
   useEffect(() => {
     if (gameStarted) {
-      startGame();
+      generateRandomSentence();
+      setTime(20);
+      setScore(0);
+      setGameOver(false);
     }
   }, [gameStarted]);
 
@@ -35,12 +39,6 @@ const TypeTester = () => {
       setGameOver(true);
     }
   }, [time, gameOver, gameStarted]);
-
-  const startGame = () => {
-    generateRandomSentence();
-    setTime(20);
-    setGameOver(false);
-  }
 
   const handleChange = (e) => {
     if (!gameOver && gameStarted) {
@@ -69,7 +67,7 @@ const TypeTester = () => {
         let colour;
         
         if (typedChar == null) {
-          colour = 'black';
+          colour = '{#CCCCCC}';
         } else if (typedChar === char) {
           colour = 'green'
         } else {

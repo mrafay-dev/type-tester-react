@@ -1,0 +1,35 @@
+
+
+
+body {
+    background-color: #3D3D3D;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    align-items: center;
+    min-height: 100vh;
+    color: #cccccc;
+    padding: 0 20px 0 20px;
+}
+
+.sentence {
+    font-size: 45px;
+}
+
+.title {
+    color: antiquewhite;
+    margin: 10px;
+}
+
+
+.start-button {
+    border-radius: 50px;
+}
+
+
