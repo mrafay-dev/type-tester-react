@@ -20,6 +20,7 @@ body {
 
 .sentence {
     font-size: 45px;
+    letter-spacing: 5px;
 }
 
 .title {
@@ -27,7 +28,29 @@ body {
     margin: 10px;
 }
 
+.cursor {
+    animation: blink 1.5s linear infinite;
+    color: red;
+    margin-right: -5px;
+    margin-left: -5px;
+}
 
+@keyframes blink {
+    25% {
+        opacity: 0.5;
+    }
+    50% {
+        opacity: 0;
+    }
+    75% {
+        opacity: 0.5;
+    }
+}
+
+.input-field {
+    opacity: 0;
+
+}
 .start-button {
     border-radius: 50px;
 }

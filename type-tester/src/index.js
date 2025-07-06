@@ -1,6 +1,7 @@
 import React, {
   useState,
-  useEffect
+  useEffect,
+  useRef
 } from 'react';
 import ReactDOM from 'react-dom/client';
 import './styles.css';
@@ -18,11 +19,12 @@ const TypeTester = () => {
   const [gameOver, setGameOver] = useState(false);
   const [time, setTime] = useState(60);
   const [gameStarted, setGameStarted] = useState(false);
+  const inputRef = useRef(null);
 
   useEffect(() => {
     if (gameStarted) {
       generateRandomSentence();
-      setTime(20);
+      setTime(200000000);
       setScore(0);
       setGameOver(false);
     }
@@ -67,7 +69,7 @@ const TypeTester = () => {
         let colour;
         
         if (typedChar == null) {
-          colour = '{#CCCCCC}';
+          colour = '#CCCCCC';
         } else if (typedChar === char) {
           colour = 'green'
         } else {
@@ -103,9 +105,15 @@ const TypeTester = () => {
           {!gameOver && (
             <div className='input-container'>
               <input 
+                ref={inputRef} 
                 type="text"
                 value={input}
                 onChange={handleChange}
+                onBlur={() => {
+                  setTimeout(() => {
+                    inputRef.current?.focus();
+                  }, 10);
+                }}
                 className='input-field'
                 placeholder="Type Here..."
                 autoFocus
